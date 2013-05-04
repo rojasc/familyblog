@@ -1,0 +1,44 @@
+// Place all the styles related to the Posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.post {
+	width: 80%;
+	margin: 0 auto;
+	.header {
+		.title {
+			width: 79%;
+			float: left;
+			text-align: left;
+			font-size: 16px;
+			font-weight: bold;
+		}
+	
+		.name {
+			width: 19%;
+			font-size: 8px;
+			float: right;
+			text-align: right;
+			position: relative;
+			top: 4px;
+		}
+	}
+
+	.content {
+		width: 95%;
+	}
+
+	.comments {
+		text-align: right;
+		.comment_name {
+			margin-top: 1em;
+		}
+
+		.comment_body {
+			width: 98%;
+			height: 10em;
+			margin-top: 0.5em;
+		}
+	}
+
+}

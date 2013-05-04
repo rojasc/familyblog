@@ -1,0 +1,25 @@
+<%= div_for post do %>  
+  <div class="header">
+    <div class="title"> <%= link_to post.title, post %> </div>
+    <div class="name"> <%= post.name %> </div>
+    <div class="clearme"></div>
+  </div>
+  <div class="content">
+    <%= post.body %>
+  </div>
+  <div class="comments">
+    <% if post.comments_count %>
+      <a href="#" class="show_comments"> <%= 'Show ' + pluralize(post.comments_count, "comment") + '...' %> </a>
+    <% else %>
+      No comments...
+    <% end %>
+    <div class="comment_wrapper invisible">
+      <%= form_for([post, Comment.new], remote: true, html: {id: 'comment_for_' + dom_id(post)}) do |f| %>
+        Name: <%= f.text_field :name, class: 'comment_name' %>
+        <%= f.text_area :body, class: 'comment_body' %>
+        <%= f.hidden_field :post_id, value: post.id %>
+        <%= f.submit :Submit %>
+      <% end %>
+    </div>
+  </div>
+<% end %>
